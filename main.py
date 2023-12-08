@@ -8,10 +8,12 @@ while True:
         case 'add':
             todo = input("Enter a todo: ")
             todos.append(todo)
-        case 'show':
+        case 'show' | 'display':  # OR Operator
             for todo in todos:
                 print(todo)
         case 'exit':
             break
+        case _:  # You can call this variable as you want, _ is a convention
+            print("Hey, you entered an unknown command")
 
 print("Bye!")
