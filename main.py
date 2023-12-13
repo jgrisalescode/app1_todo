@@ -1,7 +1,7 @@
 todos = []
 
 while True:
-    user_action = input('Type "add", "show", "edit" or "exit": ')
+    user_action = input('Type "add", "show", "edit", "complete" or "exit": ')
     user_action = user_action.strip().lower()
 
     match user_action:  # match only for python 3.10+
@@ -11,12 +11,15 @@ while True:
         case 'show' | 'display':  # OR Operator
             for index, item in enumerate(todos):
                 # print(index, '-', item)
-                print(f"{index}-{item}")
+                print(f"{index + 1}-{item}")
         case 'edit':
-            user_number: int(input('Number of the todo to edit: '))
+            user_number = int(input('Number of the todo to edit: '))
             todo_number = user_number - 1
             new_todo = input("Enter new todo: ")
             todos[todo_number] = new_todo
+        case 'complete':
+            user_number = int(input('Number of the todo to complete: '))
+            todos.pop(user_number - 1)
         case 'exit':
             break
         case _:  # You can call this variable as you want, _ is a convention
