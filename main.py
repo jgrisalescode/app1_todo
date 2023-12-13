@@ -9,9 +9,9 @@ while True:
             todo = input("Enter a todo: ")
             todos.append(todo)
         case 'show' | 'display':  # OR Operator
-            for index, todo in enumerate(todos):
-                # print(index, '-', todo)
-                print(f"{index}-{todo}")
+            for index, item in enumerate(todos):
+                # print(index, '-', item)
+                print(f"{index}-{item}")
         case 'edit':
             user_number: int(input('Number of the todo to edit: '))
             todo_number = user_number - 1
