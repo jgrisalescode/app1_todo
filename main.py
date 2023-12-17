@@ -1,5 +1,3 @@
-todos = []
-
 while True:
     user_action = input('Type "add", "show", "edit", "complete" or "exit": ')
     user_action = user_action.strip().lower()
@@ -20,6 +18,10 @@ while True:
                 file.close()
 
         case 'show' | 'display':  # OR Operator
+            file = open('todos.txt', 'r')
+            todos = file.readlines()
+            file.close()
+
             for index, item in enumerate(todos):
                 # print(index, '-', item)
                 print(f"{index + 1}-{item}")
