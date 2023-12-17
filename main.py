@@ -6,8 +6,19 @@ while True:
 
     match user_action:  # match only for python 3.10+
         case 'add':
-            todo = input("Enter a todo: ")
+            todo = input("Enter a todo: ") + "\n"
+
+            file = open('todos.txt', 'r')
+            todos = file.readlines()
+            file.close()
+
             todos.append(todo)
+
+            # Store a file object with open()
+            with open('todos.txt', 'w') as file:
+                file.writelines(todos)
+                file.close()
+
         case 'show' | 'display':  # OR Operator
             for index, item in enumerate(todos):
                 # print(index, '-', item)
